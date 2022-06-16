@@ -1,0 +1,34 @@
+<div id="container" class = "covid_body">
+    <div id="Head">
+        <h2>Covid-19 Predicted</h2>
+    </div>
+    <div class="form-login">   
+        <form action="" id="Predicted" class="input-form" action = "{{url_for('Home_index')}}" method = "POST" enctype="multipart/form-data">
+            <input type="text" value="Covid" style="display: none;" name = "nameawal">
+            <div id = "first">
+                <input type="text" id="FirstName" name = "FirstName" class="FN" placeholder="First Name" required>
+                <input type="text" id="LatName" name = "LN" class="LN" placeholder="Last Name" required>
+            </div> 
+            <div id = "first">
+                <input type="tel" id="Telp" class="T" placeholder="No Handphone" pattern="[0-9]*" required>
+            </div> 
+            <div id = "first">
+                <input type="email" id="email" name = "email" class="E" placeholder="Email Anda" required>
+            </div> 
+            <div id = "first">
+                <input type="number" id="Age" class="Age" name = "age" placeholder="Age" required>
+                <input type="text" id="gender" class="gender" name = "gender" placeholder="Gender" required >
+            </div> 
+            <div id = "first">
+                <input type="file" id="file" name = 'imagefile' class="F" placeholder="File Anda" required hidden = "hidden" required>
+                <div id="button_file">
+                    <span id="txt">Choose File</span>
+                    <span id="value">No File Input</span>
+                </div>
+            </div> 
+            <span id = "lngs">*Please Insert Image x-ray lungs*</span>
+            <button type="submit" class="submit-buttons" id="submit-buttons submit-buttonslogin" name = "predict">Submit</button>
+        </form>
+    </div>
+    
+</div>

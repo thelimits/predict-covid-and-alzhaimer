@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- link for font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+     <!-- link jquery script -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <!-- link for css -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <title>Predicted Covid</title>
+</head>
+<body>
+   <!-- Header -->
+   {% include 'Asset/Header.html'  %}
+   <!-- Content -->
+   {%if judul == "Covid-19"%}
+    <div id="container">
+        <div id="Head">
+            <h2>Covid-19 Predicted</h2>
+        </div>
+        {% if temp, email %}
+            <span id = "names">Nama: {{temp}}</span>
+            <span id = "names" style = "margin-top : 30px;">Email: {{email}}</span>       
+            <span id = "names" style = "margin-top : 60px;"> Prediksi: 
+                {%if predicteds == "Normal" %}
+                    <span style = "color:green">
+                        {{predicteds}}
+                    </span>  
+                {%else%}
+                <span style = "color:red">
+                    {{predicteds}}
+                </span>  
+                {%endif%}
+            </span>           
+            <span id = "names" style = "margin-top : 90px;">Gender: {{Gender}}</span>
+            <span id = "names" style = "color: orange; margin-top : 120px;">Ini hanyalah sebuah prediksi, titik ketepantannya hanya 88%</span>
+            {% if path %}
+                <img  id = "names" src = "{{path}}"  style = "margin-top : 150px;">
+            {% endif %}    
+        {% endif %}
+    </div>
+    {%else%}
+    <div id="container">
+        <div id="Head">
+            <h2>Alzhaimer Predicted</h2>
+        </div>
+        {% if temp, email %}
+            <span id = "names">Nama: {{judul}}</span>
+            <span id = "names" style = "margin-top : 30px;">Email: {{email}}</span>       
+            <span id = "names" style = "margin-top : 60px;"> Prediksi: 
+                
+                {%if predicteds == "NonDemented" %}
+                    <span style = "color:green">
+                        {{predicteds}}
+                    </span>  
+                {%elif predicteds == "VeryMildDemented" %}
+                    <span style = "color:orange">
+                        {{predicteds}}
+                    </span>
+                {%elif predicteds == "MildDemented" %}
+                    <span style = "color: #ff1493">
+                        {{predicteds}}
+                    </span>  
+                {%else%}
+                    <span style = "color: red">
+                        {{predicteds}}
+                    </span>  
+                {%endif%}
+            </span>           
+            <span id = "names" style = "margin-top : 90px;">Gender: {{Gender}}</span>
+            <span id = "names" style = "color: orange; margin-top : 120px;">Ini hanyalah sebuah prediksi, titik ketepantannya hanya 95%</span>
+            {% if path %}
+                <img  id = "names" src = "{{path}}"  style = "margin-top : 150px;">
+            {% endif %}    
+        {% endif %}
+    {% endif %}
+    <script type=text/javascript src="{{url_for('static', filename='engine.js')}}"></script>
+</body>
+</html>
